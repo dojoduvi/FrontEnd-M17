@@ -1,0 +1,95 @@
+@import "config/reset.less";
+@import "mapas.less";
+
+@bpMobile: ~"(max-width: 767px)";
+@bpTablet: ~"(min-width: 768px) and (max-width: 1023px)";
+
+.displayFlex{
+    display: flex;
+}
+
+.fullSize{
+    width: 100%;
+}
+
+.tdNone{
+    text-decoration: none;
+}
+
+body{ background-color: #colors[bgBody]; }
+
+.container{
+    max-width: #container[mw];
+    width: #container[wi];
+    margin: #container[ma];
+
+    @media @bpTablet{ max-width: 80%; }
+    @media @bpMobile{ max-width: 95%; }
+}
+
+header{
+    background-color: #colors[bgHeader];
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container{
+        .displayFlex();
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+}
+
+.menu{
+    .displayFlex();
+    
+    li{
+        font-weight: bold;
+        margin-left: 24px;
+        
+        a{
+            color: #colors[txtColor1];
+            .tdNone();
+        }
+    }
+}
+
+section{ padding: 56px 0; }
+
+.products{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    .fullSize();
+    
+    @media @bpTablet{
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+
+    @media @bpMobile{ display: block; }
+}
+
+.product-item{
+    @media @bpMobile{ margin-bottom: 32px; }
+    img{
+        .fullSize();
+        border-radius: 16px;
+    }
+}
+
+.product-button{
+    display: block;
+    background-color: #colors[bgBtn1];
+    color: #colors[txtColor1];
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    .tdNone();
+
+    &:hover{ background-color: #colors[bgBtn2]; }
+}
